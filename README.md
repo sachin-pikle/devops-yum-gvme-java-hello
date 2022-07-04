@@ -1,8 +1,6 @@
 # Using GraalVM Enterprise in OCI DevOps Build Pipelines
 
-This sample shows how to use GraalVM Enterprise Edition in OCI DevOps build pipelines to build a simple Java hello world application.
-
-You can use this approach to build any high-performance Java application with GraalVM Enterprise and OCI DevOps.
+This sample shows how to use GraalVM Enterprise Edition in OCI DevOps build pipelines to build a Java hello world application. You can use this approach to build any high-performance Java application with GraalVM Enterprise and OCI DevOps.
 
 ## What is GraalVM?
 
