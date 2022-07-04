@@ -17,18 +17,18 @@ steps:
     name: "Set the PATH here. JAVA_HOME already set in env > variables above."
     command: |
       export PATH=$JAVA_HOME/bin:$PATH
-  - type: Command
-    name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x for Java 17 - JDK"
-    command: |
-      mvn --no-transfer-progress clean package
+  # - type: Command
+  #   name: "Example 1: Build a JAR with the installed GraalVM Enterprise 22.x for Java 17 - JDK"
+  #   command: |
+  #     mvn --no-transfer-progress clean package
   - type: Command
     name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
     command: |
       mvn --no-transfer-progress -Pnative -DskipTests package
 outputArtifacts:
-  - name: app_jar
-    type: BINARY
-    location: target/my-app-1.0-SNAPSHOT.jar
+  # - name: app_jar
+  #   type: BINARY
+  #   location: target/my-app-1.0-SNAPSHOT.jar
   - name: app_native_executable
     type: BINARY
     location: target/my-app
