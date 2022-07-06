@@ -64,6 +64,16 @@ To install and use GraalVM Enterprise in the DevOps build pipeline, update your 
           mvn --no-transfer-progress -Pnative -DskipTests package
     ```
 
+
+5. The native executable file is available under `target/my-app`.
+
+    ```shell
+    outputArtifacts:
+      - name: app_native_executable
+        type: BINARY
+        location: target/my-app
+    ```
+
 Here's the complete [build specification](graal_spec.yaml) file.
 
 
