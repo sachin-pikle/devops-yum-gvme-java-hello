@@ -83,7 +83,8 @@
                 <buildArg>-H:+StaticExecutableWithDynamicLibC</buildArg>
                 <buildArg>--verbose</buildArg>
                 <!-- For Quick Build (22.1+) -->
-								<!-- <buildArg>-Ob</buildArg> -->
+								<buildArg>-Ob</buildArg>
+                <buildArg>-H:BuildOutputJSONFile=build.json</buildArg>
               </buildArgs>
             </configuration>
           </plugin>
