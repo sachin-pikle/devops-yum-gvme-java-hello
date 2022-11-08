@@ -29,7 +29,7 @@ steps:
     name: "Upload the Native Image build output to Object Storage"
     timeoutInSeconds: 140
     command: |
-      oci os object put --bucket-name ssp-ni-build-json-01 --name ni-build-$(date +'%F-%H-%M-%S').json --file target/build.json --force
+      oci os object put --bucket-name ssp-ni-build-json-01 --name ni-build-$(date +'%Y%m%d%H%M%S').json --file target/build.json' --force
 
 outputArtifacts:
   # - name: app_jar
