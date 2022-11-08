@@ -25,6 +25,12 @@ steps:
     name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
     command: |
       mvn --no-transfer-progress -Pnative -DskipTests package
+  - type: Command
+    name: "Upload the Native Image build output to Object Storage"
+    timeoutInSeconds: 140
+    command: |
+      oci os object put --bucket-name ssp-ni-build-json-01 --name ni-build-$(date +'%Y%m%d').json --file target/build.json --force
+
 outputArtifacts:
   # - name: app_jar
   #   type: BINARY
