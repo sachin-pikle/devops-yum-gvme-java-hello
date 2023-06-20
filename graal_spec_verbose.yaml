@@ -40,7 +40,7 @@ steps:
       printf "Native-image version: $(native-image --version) \n"
       printf "Maven version:\n $(mvn --version) \n"
       echo "Current dir: $(pwd) \n"
-      printf "Current dir contents:\n $(ls -alh) \n"
+      printf "Current dir contents:\n $(ls -alh)"
       printf "Output of yum list graalvm-17* :\n $(yum list graalvm-17*) \n"
   - type: Command
     name: "Example 1: Build a JAR with the installed Oracle GraalVM for JDK 17 - JDK"
