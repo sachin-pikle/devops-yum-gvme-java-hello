@@ -1,14 +1,14 @@
-# Using GraalVM Enterprise in OCI DevOps Build Pipelines
+# Using Oracle GraalVM in OCI DevOps Build Pipelines
 
-This sample shows how to use GraalVM Enterprise Edition in OCI DevOps build pipelines to build a Java hello world application. You can use this approach to build any high-performance Java application with GraalVM Enterprise and OCI DevOps.
+This sample shows how to use Oracle GraalVM in OCI DevOps build pipelines to build a Java hello world application. You can use this approach to build any high performance Java application with Oracle GraalVM and OCI DevOps.
 
 ## What is GraalVM?
 
-GraalVM is a high-performance JDK distribution that can accelerate any Java workload running on the HotSpot JVM.
+GraalVM is a high performance JDK distribution that can accelerate any Java workload running on the HotSpot JVM.
 
 GraalVM Native Image ahead-of-time compilation enables you to build lightweight Java applications that are smaller, faster, and use less memory and CPU. At build time, GraalVM Native Image analyzes a Java application and its dependencies to identify just what classes, methods, and fields are absolutely necessary and generates optimized machine code for just those elements.
 
-GraalVM Enterprise Edition is available for use on Oracle Cloud Infrastructure (OCI) at no additional cost.
+Oracle GraalVM is available for use on Oracle Cloud Infrastructure (OCI) at no additional cost.
 
 ## What is OCI DevOps?
 
@@ -19,16 +19,16 @@ OCI DevOps build and deployment pipelines reduce change-driven errors and decrea
 
 ## Updating the Build Specification File
 
-To install and use GraalVM Enterprise in the DevOps build pipeline, update your build specification file as follows:
+To install and use Oracle GraalVM in the DevOps build pipeline, update your build specification file as follows:
 
-1. Add the following command to install the one or more required GraalVM Enterprise components. For example, this command installs Native Image along with the Java Development Kit (JDK) and other necessary dependencies.
+1. Add the following command to install the required Oracle GraalVM components. For example, this command installs Native Image along with the Java Development Kit (JDK) and other necessary dependencies.
 
     ```shell
     steps:
       - type: Command
-        name: "Install the latest GraalVM Enterprise 22.x for Java 17 - JDK and Native Image"
+        name: "Install the latest Oracle GraalVM for JDK 17 - JDK and Native Image"
         command: |
-          yum -y install graalvm22-ee-17-native-image
+          yum -y install graalvm-17-native-image
     ```
 
 2. Set the JAVA_HOME environment variable.
@@ -36,7 +36,7 @@ To install and use GraalVM Enterprise in the DevOps build pipeline, update your 
     ```shell
     env:
       variables:
-        "JAVA_HOME" : "/usr/lib64/graalvm/graalvm22-ee-java17"
+        "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java17"
     ```
 
 3. Set the PATH environment variable.
@@ -59,7 +59,7 @@ To install and use GraalVM Enterprise in the DevOps build pipeline, update your 
     ```shell
     steps:
       - type: Command
-        name: "Example 2: Build a native executable with the installed GraalVM Enterprise 22.x for Java 17 - Native Image"
+        name: "Example 2: Build a native executable with the installed Oracle GraalVM for JDK 17 - Native Image"
         command: |
           mvn --no-transfer-progress -Pnative -DskipTests package
     ```
