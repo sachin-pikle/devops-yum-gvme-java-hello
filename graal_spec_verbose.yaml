@@ -43,7 +43,7 @@ steps:
       printf "Current dir contents:\n $(ls -alh) \n"
       printf "Output of yum list graalvm-17* :\n $(yum list graalvm-17*) \n"
   - type: Command
-    name: "Example 1: Build a JAR with the installed Oracle GraalVM for JDK 17 - JDK"
+    name: "Example 1: Build a JAR with Oracle GraalVM for JDK 17 - JDK"
     command: |
       mvn --no-transfer-progress clean package
   # - type: Command
@@ -51,7 +51,7 @@ steps:
   #   command: |
   #     mvn clean
   - type: Command
-    name: "Example 2: Build a native executable with the installed Oracle GraalVM for JDK 17 - Native Image"
+    name: "Example 2: Build a native executable with Oracle GraalVM for JDK 17 - Native Image"
     command: |
       # mvn --no-transfer-progress clean -Pnative -DskipTests package
       mvn --no-transfer-progress -Pnative -DskipTests package
