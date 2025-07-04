@@ -26,9 +26,9 @@ To install and use Oracle GraalVM in the DevOps build pipeline, update your buil
     ```shell
     steps:
       - type: Command
-        name: "Install the latest Oracle GraalVM for JDK 17 - JDK and Native Image"
+        name: "Install the latest Oracle GraalVM for JDK 21 (Native Image and JDK)"
         command: |
-          yum -y install graalvm-17-native-image
+          yum -y install graalvm-21-native-image
     ```
 
 2. Set the JAVA_HOME environment variable.
@@ -36,7 +36,7 @@ To install and use Oracle GraalVM in the DevOps build pipeline, update your buil
     ```shell
     env:
       variables:
-        "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java17"
+        "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java21"
     ```
 
 3. Set the PATH environment variable.
@@ -59,7 +59,7 @@ To install and use Oracle GraalVM in the DevOps build pipeline, update your buil
     ```shell
     steps:
       - type: Command
-        name: "Example 2: Build a native executable with the installed Oracle GraalVM for JDK 17 - Native Image"
+        name: "Example 2: Build a native executable with the installed Oracle GraalVM Native Image"
         command: |
           mvn --no-transfer-progress -Pnative -DskipTests package
     ```
