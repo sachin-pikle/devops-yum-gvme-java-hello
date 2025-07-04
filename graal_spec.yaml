@@ -4,36 +4,32 @@ timeoutInSeconds: 600
 runAs: root
 shell: bash
 env:
-  exportedVariables:
-    - BUILDRUN_HASH
   variables:
     "JAVA_HOME" : "/usr/lib64/graalvm/graalvm-java21"
     # PATH is a reserved variable and cannot be defined as a variable.
     # However, PATH can be changed in a build step and the change is visible in subsequent steps.
 steps:
   - type: Command
-    name: "Define unique  tag"
-    timeoutInSeconds: 40
-    command: |
-      export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
-      echo "BUILDRUN_HASH: " $BUILDRUN_HASH
-
-  - type: Command
-    name: "Install Oracle GraalVM for JDK 21 (Native Image and JDK)"
+    name: "Install the latest Oracle GraalVM for JDK 21 - JDK and Native Image"
     command: |
       yum -y install graalvm-21-native-image
   - type: Command
-    name: "Set PATH Variable"
+    name: "Set the PATH here. JAVA_HOME already set in env > variables above."
     command: |
       export PATH=$JAVA_HOME/bin:$PATH
   # - type: Command
-  #   name: "Build a Jar"
+  #   name: "Example 1: Build a JAR with Oracle GraalVM JDK"
   #   command: |
   #     mvn --no-transfer-progress clean package
   - type: Command
-    name: "Build a native executable "
+    name: "Example 2: Build a native executable with Oracle GraalVM Native Image"
     command: |
       mvn --no-transfer-progress -Pnative -DskipTests package
+  - type: Command
+    name: "Upload the Native Image build output to Object Storage"
+    timeoutInSeconds: 140
+    command: |
+      oci os object put --bucket-name ssp-ni-build-json-01 --name ni-build-$(date +'%Y%m%d-%H%M%S').json --file 'build.json' --force
 
 outputArtifacts:
   # - name: app_jar
